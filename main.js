@@ -1,6 +1,7 @@
+// import firebase from 'firebase'
 [
-    { "id": 1, "comment": "新しいToDo1", "state": 0 },
-    { "id": 2, "comment": "新しいToDo2", "state": 0 }
+    { "id": 1, "projectName": "プロ1", "description": "説明1", "state": 0 },
+    { "id": 2, "projectName": "プロ2", "description": "説明2", "state": 0 }
 ]
 const app = new Vue({
     el: '#app',
@@ -14,28 +15,32 @@ const app = new Vue({
       ],
       // 選択している options の value を記憶するためのデータ
       // 初期値を「-1」つまり「すべて」にする
-      current: -1
+      current: -1,
+
     },
     methods: {
       // 使用するメソッド
         // ToDo 追加の処理
         doAdd: function(event, value) {
             // ref で名前を付けておいた要素を参照
-            var comment = this.$refs.comment
+            var projectName = this.$refs.projectName
+            var description = this.$refs.description
             // 入力がなければ何もしないで return
-            if (!comment.value.length) {
-            return
+            if (!projectName.value.length || !description.value.length) {
+              return
             }
             // { 新しいID, コメント, 作業状態 }
             // というオブジェクトを現在の todos リストへ push
             // 作業状態「state」はデフォルト「作業中=0」で作成
             this.todos.push({
-            id: todoStorage.uid++,
-            comment: comment.value,
-            state: 0
+              id: todoStorage.uid++,
+              projectName: projectName.value,
+              description: description.value,
+              state: 0
             })
             // フォーム要素を空にする
-            comment.value = ''
+            projectName.value = ''
+            description.value = ''
         },
         // 状態変更の処理
         doChangeState: function(item) {
@@ -87,6 +92,7 @@ const app = new Vue({
             return this.current < 0 ? true : this.current === el.state
           }, this)
         },
+        //radioButton
         labels() {
             return this.options.reduce(function(a, b) {
               return Object.assign(a, { [b.value]: b.label })
