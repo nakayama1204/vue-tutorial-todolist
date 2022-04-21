@@ -42,7 +42,7 @@ const app = new Vue({
               state: 0
             })
             // フォーム要素を空にする
-            priority.value = 
+            priority.value = ''
             projectName.value = ''
             description.value = ''
         },
