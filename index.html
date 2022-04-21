@@ -55,10 +55,13 @@
         <form class="add-form" v-on:submit.prevent="doAdd">
             <!-- 優先度フォーム -->
             優先度 <select ref="priority">
-                    <option disabled value="">Please select one</option>
+                    <option value="" disabled selected>Please select one</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
                   </select>
             <!-- project名入力フォーム -->
             project名 <input type="text" ref="projectName">

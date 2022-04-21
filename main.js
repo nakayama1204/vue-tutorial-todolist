@@ -61,10 +61,10 @@ const app = new Vue({
     var :todoStorage = {
         fetch: function() {
             var todos = JSON.parse(
-            localStorage.getItem(STORAGE_KEY) || '[]'
+              localStorage.getItem(STORAGE_KEY) || '[]'
             )
             todos.forEach(function(todo, index) {
-            todo.id = index
+              todo.id = index
             })
             todoStorage.uid = todos.length
             return todos
@@ -91,8 +91,8 @@ const app = new Vue({
         },
     },
     created() {
-        // インスタンス作成時に自動的に fetch() する
-        this.todos = todoStorage.fetch()
+      // インスタンス作成時に自動的に fetch() する
+      this.todos = todoStorage.fetch()
     },
     computed: {
         computedTodos: function() {
