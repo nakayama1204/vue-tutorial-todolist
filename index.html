@@ -54,7 +54,7 @@
         <h2>新しい作業の追加</h2>
         <form class="add-form" v-on:submit.prevent="doAdd">
             <!-- 優先度フォーム -->
-            優先度 <select v-model="selectedItem" ref="priority">
+            優先度 <select ref="priority">
                     <option disabled value="">Please select one</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
